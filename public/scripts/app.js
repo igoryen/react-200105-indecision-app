@@ -32,5 +32,20 @@ var template = React.createElement(
     )
 );
 
+var template2 = React.createElement(
+    "div",
+    null,
+    React.createElement(
+        "h1",
+        null,
+        "igoryen"
+    ),
+    React.createElement(
+        "p",
+        null,
+        "Location: Earth"
+    )
+);
+
 var appRoot = document.getElementById("app");
-ReactDOM.render(template, appRoot);
+ReactDOM.render(template2, appRoot);
