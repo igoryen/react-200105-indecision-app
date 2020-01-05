@@ -12,12 +12,16 @@ var template = (
     </div>
 ); 
 
+var user = {
+    name: 'Igor Yen',
+    location: 'Earth'
+};
 var username = 'Igor';
 var userLocation = 1;
 var template2 = (
     <div>
-        <h1>{username.toUpperCase() + '!'}</h1>
-        <p>Location: {userLocation}</p>
+        <h1>{user.name.toUpperCase() + '!'}</h1>
+        <p>Location: {user.location}</p>
     </div> 
 );
 

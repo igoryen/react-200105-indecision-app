@@ -32,6 +32,10 @@ var template = React.createElement(
     )
 );
 
+var user = {
+    name: 'Igor Yen',
+    location: 'Earth'
+};
 var username = 'Igor';
 var userLocation = 1;
 var template2 = React.createElement(
@@ -40,13 +44,13 @@ var template2 = React.createElement(
     React.createElement(
         'h1',
         null,
-        username.toUpperCase() + '!'
+        user.name.toUpperCase() + '!'
     ),
     React.createElement(
         'p',
         null,
         'Location: ',
-        userLocation
+        user.location
     )
 );
 
