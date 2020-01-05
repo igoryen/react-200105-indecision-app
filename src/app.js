@@ -1,5 +1,3 @@
-console.log('App.js is running!');
-
 var app = {
     title: "Aaa",
     subtitle: " Bbb"
@@ -19,23 +17,21 @@ var template = (
 
 var user = {
     name: 'Igor Yen',
+    age: 45,
     location: 'Earth'
 };
 
 function getLocation( location ) {
     if(location){
-        return location;
-    }
-    else {
-        return 'Unknown';
-    }
-    
+        return <p>Location: {location}</p>;
+    }    
 }
 
 var template2 = (
     <div>
-        <h1>{user.name.toUpperCase() + '!'}</h1>
-        <p>Location: {getLocation(user.location)}</p>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        {getLocation(user.location)}
     </div> 
 );
 
