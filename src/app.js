@@ -1,13 +1,16 @@
 var app = {
-    title: "Aaa",
-    subtitle: " Bbb"
+    title: "Some title",
+    subtitle: " Some subtitle",
+    options: ['One', 'Two']
 };
+
 
 // JSX - Javascript XML
 var template = (
     <div>
         <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
+        {app.subtitle && <p>{app.subtitle}</p> }
+        {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
         <ol>
             <li>item 1</li>
             <li>item 2</li>
@@ -36,5 +39,5 @@ var template2 = (
 );
 
 var appRoot = document.getElementById("app");
-ReactDOM.render(template2, appRoot);
-// ReactDOM.render(template, appRoot); /
+// ReactDOM.render(template2, appRoot);
+ReactDOM.render(template, appRoot);

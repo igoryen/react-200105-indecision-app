@@ -1,8 +1,9 @@
 "use strict";
 
 var app = {
-    title: "Aaa",
-    subtitle: " Bbb"
+    title: "Some title",
+    subtitle: " Some subtitle",
+    options: ['One', 'Two']
 };
 
 // JSX - Javascript XML
@@ -14,10 +15,15 @@ var template = React.createElement(
         null,
         app.title
     ),
-    React.createElement(
+    app.subtitle && React.createElement(
         "p",
         null,
         app.subtitle
+    ),
+    app.options && app.options.length > 0 && React.createElement(
+        "p",
+        null,
+        "Here are your options:"
     ),
     React.createElement(
         "ol",
@@ -70,5 +76,5 @@ var template2 = React.createElement(
 );
 
 var appRoot = document.getElementById("app");
-ReactDOM.render(template2, appRoot);
-// ReactDOM.render(template, appRoot); /
+// ReactDOM.render(template2, appRoot);
+ReactDOM.render(template, appRoot);
