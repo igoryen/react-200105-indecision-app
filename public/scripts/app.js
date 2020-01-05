@@ -41,8 +41,15 @@ var user = {
     name: 'Igor Yen',
     location: 'Earth'
 };
-var username = 'Igor';
-var userLocation = 1;
+
+function getLocation(location) {
+    if (location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
+
 var template2 = React.createElement(
     "div",
     null,
@@ -55,10 +62,10 @@ var template2 = React.createElement(
         "p",
         null,
         "Location: ",
-        user.location
+        getLocation(user.location)
     )
 );
 
 var appRoot = document.getElementById("app");
-// ReactDOM.render(template2, appRoot);
-ReactDOM.render(template, appRoot);
+ReactDOM.render(template2, appRoot);
+// ReactDOM.render(template, appRoot); /
