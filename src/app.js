@@ -1,4 +1,4 @@
-var app = {
+const app = {
     title: "Some title",
     subtitle: " Some subtitle",
     options: ['One', 'Two']
@@ -6,7 +6,7 @@ var app = {
 
 
 // JSX - Javascript XML
-var template = (
+const template = (
     <div>
         <h1>{app.title}</h1>
         {app.subtitle && <p>{app.subtitle}</p> }
@@ -18,7 +18,7 @@ var template = (
     </div>
 ); 
 
-var user = {
+const user = {
     name: 'Igor Yen',
     age: 45,
     location: 'Earth'
@@ -30,7 +30,7 @@ function getLocation( location ) {
     }    
 }
 
-var template2 = (
+const template2 = (
     <div>
         <h1>{user.name ? user.name : 'Anonymous'}</h1>
         {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
@@ -38,6 +38,6 @@ var template2 = (
     </div> 
 );
 
-var appRoot = document.getElementById("app");
+const appRoot = document.getElementById("app");
 // ReactDOM.render(template2, appRoot);
 ReactDOM.render(template, appRoot);
