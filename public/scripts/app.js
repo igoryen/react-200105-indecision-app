@@ -1,40 +1,80 @@
-'use strict';
+"use strict";
 
-var nameVar = 'Andrew';
-var nameVar = 'Mike'; // (10)
-console.log('nameVar', nameVar);
+var app = {
+    title: "Some title",
+    subtitle: " Some subtitle",
+    options: ['One', 'Two']
+};
 
-var nameLet = 'Jen';
-nameLet = 'July'; // (20)
-console.log('nameLet', nameLet);
+// JSX - Javascript XML
+var template = React.createElement(
+    "div",
+    null,
+    React.createElement(
+        "h1",
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        "p",
+        null,
+        app.subtitle
+    ),
+    app.options && app.options.length > 0 && React.createElement(
+        "p",
+        null,
+        "Here are your options:"
+    ),
+    React.createElement(
+        "ol",
+        null,
+        React.createElement(
+            "li",
+            null,
+            "item 1"
+        ),
+        React.createElement(
+            "li",
+            null,
+            "item 2"
+        )
+    )
+);
 
-var nameConst = 'Frank'; // (25)
-// const nameConst = 'Gunther'; // (30)
-console.log('nameConst', nameConst);
+var user = {
+    name: 'Igor Yen',
+    age: 45,
+    location: 'Earth'
+};
 
-function getPetName() {
-    // (35)
-    // var petName = 'Hal'; // (40)
-    var petName = 'Hal'; // (40)
-    return petName;
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            "p",
+            null,
+            "Location: ",
+            location
+        );
+    }
 }
-var petName = getPetName(); // (45)
-getPetName();
-console.log(petName);
 
-var fullName = 'Igor Yen';
-if (fullName) {
-    var _firstName = fullName.split(' ')[0];
-    console.log(_firstName);
-}
+var template2 = React.createElement(
+    "div",
+    null,
+    React.createElement(
+        "h1",
+        null,
+        user.name ? user.name : 'Anonymous'
+    ),
+    user.age && user.age >= 18 && React.createElement(
+        "p",
+        null,
+        "Age: ",
+        user.age
+    ),
+    getLocation(user.location)
+);
 
-console.log(firstName);
-/**
- * 10 - overwriting, reassigning, redefining previous homonymous var. no complaints.
- * 20 - writing "let nameLet" is an error
- * 25 - a const cannot be redefined, its value can never be changed.
- * 30 - duplicate declaration
- * 35 - scope A in which petName is defined 
- * 40 - 'var' makes it inaccessible from the outside of the func
- * 45 - scope B in which petName is defined
- */
+var appRoot = document.getElementById("app");
+// ReactDOM.render(template2, appRoot);
+ReactDOM.render(template, appRoot);
