@@ -2,12 +2,24 @@
   "name": "200105-indecision-app",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:igoryen/react-200105-indecision-app.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/igoryen/react-200105-indecision-app.git"
+  },
   "author": "igoryen",
   "license": "MIT",
   "private": null,
   "dependencies": {
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1"
+  },
+  "description": "\"# react-200105-indecision-app\"",
+  "bugs": {
+    "url": "https://github.com/igoryen/react-200105-indecision-app/issues"
+  },
+  "homepage": "https://github.com/igoryen/react-200105-indecision-app#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
