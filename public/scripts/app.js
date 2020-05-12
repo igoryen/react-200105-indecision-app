@@ -19,6 +19,7 @@ var user = {
     printPlacesLived: function printPlacesLived() {
         var _this = this;
 
+        // (23)
         // const that = this; // (25)
         // this.cities.forEach(function(city){ // 27
         this.cities.forEach(function (city) {
@@ -34,6 +35,7 @@ user.printPlacesLived();
  * 05 - print out the arguments object
  * 10 - argument C (add(a,b)) doesn't exist, but the 'arguments' object still shows it
  * 20 - argument C (add(a,b)) doesn't exist, and we have an error if we uncomment (5)
+ * 23 - lack of keyword 'function' has characteristics of an ES5 function.
  * 25 - using 'that' is a workaround to make (30) work
  * 27 - Error if using 'this'. No error if using 'that' in (25)
  * 28 - Arrow function uses 'this' of the parent
