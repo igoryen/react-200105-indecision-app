@@ -43,14 +43,21 @@ let count = 0;
 const addOne = () => {
     console.log('addOne')
 };
+const minOne = () => {
+    console.log('minOne')
+};
+const reset = () => {
+    console.log('Reset')
+};
 const templateTwo = ( // (10)
     <div>
         <h1>Count: {count}</h1>
-        <button onClick={()=>{
-            console.log('some val here')
-        }}>+1</button>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minOne}>-1</button>
+        <button onClick={reset}>Reset</button>
     </div>
 );
+
 
 const appRoot = document.getElementById("app");
 // ReactDOM.render(template2, appRoot);

@@ -80,6 +80,12 @@ var count = 0;
 var addOne = function addOne() {
     console.log('addOne');
 };
+var minOne = function minOne() {
+    console.log('minOne');
+};
+var reset = function reset() {
+    console.log('Reset');
+};
 var templateTwo = // (10)
 React.createElement(
     "div",
@@ -92,10 +98,18 @@ React.createElement(
     ),
     React.createElement(
         "button",
-        { onClick: function onClick() {
-                console.log('some val here');
-            } },
+        { onClick: addOne },
         "+1"
+    ),
+    React.createElement(
+        "button",
+        { onClick: minOne },
+        "-1"
+    ),
+    React.createElement(
+        "button",
+        { onClick: reset },
+        "Reset"
     )
 );
 
