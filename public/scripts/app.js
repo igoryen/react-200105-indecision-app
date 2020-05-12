@@ -22,13 +22,18 @@ var user = {
         // (23)
         // const that = this; // (25)
         // this.cities.forEach(function(city){ // 27
-        this.cities.forEach(function (city) {
-            // 28
-            console.log(_this.name + ' has lived in ' + city); // (30)
+        // this.cities.forEach((city) => { // 28
+        //     console.log(this.name + ' has lived in ' + city); // (30)
+        // });
+
+        var cityMessages = this.cities.map(function (city) {
+            // (40)
+            return _this.name + ' has lived in ' + city;
         });
+        return cityMessages;
     }
 };
-user.printPlacesLived();
+console.log(user.printPlacesLived());
 
 /**
  * arguments object no longer bound with arrow functions
@@ -40,4 +45,5 @@ user.printPlacesLived();
  * 27 - Error if using 'this'. No error if using 'that' in (25)
  * 28 - Arrow function uses 'this' of the parent
  * 30 - 'this' is not in scope here, ergo this.name is not accessible here.
+ * 40 - map() creates a new array.
  */
