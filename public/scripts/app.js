@@ -17,8 +17,11 @@ var user = {
     name: 'Andrew',
     cities: ['Philadelphia', 'New York', 'Dublin'],
     printPlacesLived: function printPlacesLived() {
-        console.log(this.name);
-        console.log(this.cities);
+        var that = this; // (25)
+        this.cities.forEach(function (city) {
+            // 27
+            console.log(that.name + ' has lived in ' + city); // (30)
+        });
     }
 };
 user.printPlacesLived();
@@ -28,4 +31,7 @@ user.printPlacesLived();
  * 05 - print out the arguments object
  * 10 - argument C (add(a,b)) doesn't exist, but the 'arguments' object still shows it
  * 20 - argument C (add(a,b)) doesn't exist, and we have an error if we uncomment (5)
+ * 25 - using 'that' is a workaround to make (30) work
+ * 27 - Error if using 'this'. No error if using 'that' in (25)
+ * 30 - 'this' is not in scope here, ergo this.name is not accessible here.
  */
