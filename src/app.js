@@ -38,6 +38,20 @@ const template2 = (
     </div> 
 );
 
+//==========================================
+let count = 0;
+const templateTwo = ( // (10)
+    <div>
+        <h1>Count: {count}</h1>
+        <button id="my_id" className="button">+1</button>
+    </div>
+);
+
 const appRoot = document.getElementById("app");
 // ReactDOM.render(template2, appRoot);
-ReactDOM.render(template, appRoot);
+// ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
+
+/**
+ * 10 - this is an Object
+ */
