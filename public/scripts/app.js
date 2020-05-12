@@ -26,11 +26,10 @@ var user = {
         //     console.log(this.name + ' has lived in ' + city); // (30)
         // });
 
-        var cityMessages = this.cities.map(function (city) {
+        return this.cities.map(function (city) {
             // (40)
             return _this.name + ' has lived in ' + city;
         });
-        return cityMessages;
     }
 };
 console.log(user.printPlacesLived());

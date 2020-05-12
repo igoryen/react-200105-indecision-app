@@ -21,10 +21,9 @@ const user = {
         //     console.log(this.name + ' has lived in ' + city); // (30)
         // });
 
-        const cityMessages = this.cities.map((city)=>{ // (40)
+        return this.cities.map((city)=>{ // (40)
             return this.name + ' has lived in ' + city;
         })
-        return cityMessages;
     }
 };
 console.log(user.printPlacesLived());
