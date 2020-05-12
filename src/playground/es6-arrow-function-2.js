@@ -11,6 +11,17 @@ const adicionar = (a,b) => {
 
 console.log(adicionar(55,1,1000)); // (20)
 
+const user = {
+    name: 'Andrew',
+    cities: ['Philadelphia', 'New York', 'Dublin'],
+    printPlacesLived: function() {
+        console.log(this.name);
+        console.log(this.cities);
+    }
+};
+user.printPlacesLived();
+
+
 /**
  * arguments object no longer bound with arrow functions
  * 05 - print out the arguments object

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var add = function add(a, b) {
     console.log(arguments); // (5)
@@ -12,6 +12,16 @@ var adicionar = function adicionar(a, b) {
 };
 
 console.log(adicionar(55, 1, 1000)); // (20)
+
+var user = {
+    name: 'Andrew',
+    cities: ['Philadelphia', 'New York', 'Dublin'],
+    printPlacesLived: function printPlacesLived() {
+        console.log(this.name);
+        console.log(this.cities);
+    }
+};
+user.printPlacesLived();
 
 /**
  * arguments object no longer bound with arrow functions
