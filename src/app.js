@@ -14,7 +14,10 @@ const onFormSubmit = (e) => {
     }
 };
 
-
+const wipeAll = () => {
+    app.options = [];
+    renderApp();
+};
 
 const user = {
     name: 'Igor Yen',
@@ -46,6 +49,7 @@ const renderApp = () => {
             {app.subtitle && <p>{app.subtitle}</p> }
             {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
             <p>{app.options.length}</p>
+            <button onClick={wipeAll}>Remove ALL</button>
             <ol>
                 <li>item 1</li>
                 <li>item 2</li>

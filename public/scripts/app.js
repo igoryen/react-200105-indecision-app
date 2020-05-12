@@ -16,6 +16,11 @@ var onFormSubmit = function onFormSubmit(e) {
     }
 };
 
+var wipeAll = function wipeAll() {
+    app.options = [];
+    renderApp();
+};
+
 var user = {
     name: 'Igor Yen',
     age: 45,
@@ -76,6 +81,11 @@ var renderApp = function renderApp() {
             "p",
             null,
             app.options.length
+        ),
+        React.createElement(
+            "button",
+            { onClick: wipeAll },
+            "Remove ALL"
         ),
         React.createElement(
             "ol",
