@@ -77,6 +77,7 @@ var template2 = React.createElement(
 
 //==========================================
 var count = 0;
+var someId = 'myId';
 var templateTwo = // (10)
 React.createElement(
     "div",
@@ -89,7 +90,7 @@ React.createElement(
     ),
     React.createElement(
         "button",
-        { id: "my_id", className: "button" },
+        { id: someId, className: "button" },
         "+1"
     )
 );
