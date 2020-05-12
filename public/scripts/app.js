@@ -92,7 +92,9 @@ React.createElement(
     ),
     React.createElement(
         "button",
-        { onClick: addOne },
+        { onClick: function onClick() {
+                console.log('some val here');
+            } },
         "+1"
     )
 );

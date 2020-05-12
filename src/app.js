@@ -46,7 +46,9 @@ const addOne = () => {
 const templateTwo = ( // (10)
     <div>
         <h1>Count: {count}</h1>
-        <button onClick={addOne}>+1</button>
+        <button onClick={()=>{
+            console.log('some val here')
+        }}>+1</button>
     </div>
 );
 
