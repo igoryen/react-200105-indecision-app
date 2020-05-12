@@ -40,11 +40,13 @@ const template2 = (
 
 //==========================================
 let count = 0;
-const someId = 'myId';
+const addOne = () => {
+    console.log('addOne')
+};
 const templateTwo = ( // (10)
     <div>
         <h1>Count: {count}</h1>
-        <button id={someId} className="button">+1</button>
+        <button onClick={addOne}>+1</button>
     </div>
 );
 
