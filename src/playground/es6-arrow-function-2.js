@@ -20,10 +20,7 @@ const user = {
         // this.cities.forEach((city) => { // 28
         //     console.log(this.name + ' has lived in ' + city); // (30)
         // });
-
-        return this.cities.map((city)=>{ // (40)
-            return this.name + ' has lived in ' + city;
-        })
+        return this.cities.map((city)=> this.name + ' has lived in ' + city) // (40)            
     }
 };
 console.log(user.printPlacesLived());

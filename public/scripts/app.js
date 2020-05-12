@@ -25,11 +25,9 @@ var user = {
         // this.cities.forEach((city) => { // 28
         //     console.log(this.name + ' has lived in ' + city); // (30)
         // });
-
         return this.cities.map(function (city) {
-            // (40)
             return _this.name + ' has lived in ' + city;
-        });
+        }); // (40)            
     }
 };
 console.log(user.printPlacesLived());
