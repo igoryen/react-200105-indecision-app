@@ -46,10 +46,14 @@ const addOne = () => {
     renderCounterApp();
 };
 const minOne = () => {
-    console.log('minOne')
+    count--;
+    console.log('minOne', count)
+    renderCounterApp();
 };
 const reset = () => {
+    count = 0;
     console.log('Reset')
+    renderCounterApp();
 };
 
 const appRoot = document.getElementById("app");

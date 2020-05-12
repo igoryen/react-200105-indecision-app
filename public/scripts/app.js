@@ -83,10 +83,14 @@ var addOne = function addOne() {
     renderCounterApp();
 };
 var minOne = function minOne() {
-    console.log('minOne');
+    count--;
+    console.log('minOne', count);
+    renderCounterApp();
 };
 var reset = function reset() {
+    count = 0;
     console.log('Reset');
+    renderCounterApp();
 };
 
 var appRoot = document.getElementById("app");
