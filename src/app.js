@@ -1,30 +1,20 @@
 const app = {
     title: "Indecision App",
     subtitle: "Put your life in the hands of a computer",
-    options: ['One', 'Two']
+    options: []
 };
 
 const onFormSubmit = (e) => {
     e.preventDefault(); // (10)
-    console.log('form submitted!');
-}
+    const option = e.target.elements.option.value; // (20)
+    if(option) {
+        app.options.push(option);
+        e.target.elements.option.value = '';
+        renderApp();
+    }
+};
 
-// JSX - Javascript XML
-const template = (
-    <div>
-        <h1>{app.title}</h1>
-        {app.subtitle && <p>{app.subtitle}</p> }
-        {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
-        <ol>
-            <li>item 1</li>
-            <li>item 2</li>
-        </ol>
-        <form onSubmit={onFormSubmit}>
-            <input type="text" name="option"/>
-            <button>Add Option</button>
-        </form>
-    </div>
-); 
+
 
 const user = {
     name: 'Igor Yen',
@@ -47,8 +37,31 @@ const template2 = (
 );
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(template, appRoot);
+
+const renderApp = () => {
+    // JSX - Javascript XML
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <p>{app.subtitle}</p> }
+            {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
+            <p>{app.options.length}</p>
+            <ol>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add Option</button>
+            </form>
+        </div>
+    ); 
+    ReactDOM.render(template, appRoot);
+};
+
+renderApp();
 
 /**
  * 10 - Stop the full-page refresh so that other code below can be run. 
+ * 20 - element on which the event was fired, here <form>
  */
