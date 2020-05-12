@@ -15,9 +15,10 @@ const user = {
     name: 'Andrew',
     cities: ['Philadelphia', 'New York', 'Dublin'],
     printPlacesLived: function() {
-        const that = this; // (25)
-        this.cities.forEach(function(city){ // 27
-            console.log(that.name + ' has lived in ' + city); // (30)
+        // const that = this; // (25)
+        // this.cities.forEach(function(city){ // 27
+        this.cities.forEach((city) => { // 28
+            console.log(this.name + ' has lived in ' + city); // (30)
         });
     }
 };
@@ -31,5 +32,6 @@ user.printPlacesLived();
  * 20 - argument C (add(a,b)) doesn't exist, and we have an error if we uncomment (5)
  * 25 - using 'that' is a workaround to make (30) work
  * 27 - Error if using 'this'. No error if using 'that' in (25)
+ * 28 - Arrow function uses 'this' of the parent
  * 30 - 'this' is not in scope here, ergo this.name is not accessible here.
  */
