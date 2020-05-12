@@ -1,8 +1,8 @@
 "use strict";
 
 var app = {
-    title: "Some title",
-    subtitle: " Some subtitle",
+    title: "Indecision App",
+    subtitle: "Put your life in the hands of a computer",
     options: ['One', 'Two']
 };
 
@@ -75,60 +75,5 @@ var template2 = React.createElement(
     getLocation(user.location)
 );
 
-//==========================================
-var count = 0;
-var addOne = function addOne() {
-    count++;
-    console.log('addOne', count);
-    renderCounterApp();
-};
-var minOne = function minOne() {
-    count--;
-    console.log('minOne', count);
-    renderCounterApp();
-};
-var reset = function reset() {
-    count = 0;
-    console.log('Reset');
-    renderCounterApp();
-};
-
 var appRoot = document.getElementById("app");
-// ReactDOM.render(template2, appRoot);
-// ReactDOM.render(template, appRoot);
-
-var renderCounterApp = function renderCounterApp() {
-    var templateTwo = // (10)
-    React.createElement(
-        "div",
-        null,
-        React.createElement(
-            "h1",
-            null,
-            "Count: ",
-            count
-        ),
-        React.createElement(
-            "button",
-            { onClick: addOne },
-            "+1"
-        ),
-        React.createElement(
-            "button",
-            { onClick: minOne },
-            "-1"
-        ),
-        React.createElement(
-            "button",
-            { onClick: reset },
-            "Reset"
-        )
-    );
-    ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
-
-/**
- * 10 - this is an Object
- */
+ReactDOM.render(template, appRoot);
