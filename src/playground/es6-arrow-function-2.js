@@ -25,6 +25,19 @@ const user = {
 };
 console.log(user.printPlacesLived());
 
+// challenge area
+
+const multiplier = {
+    // factors - array of numbers
+    factors: [10,20,30],
+    // factor - single number
+    factor: 3,
+    // multiply - return a new array where the numbers have been multiplied
+    multiple(){
+        return this.factors.map((f) => f * this.factor)
+    }
+}
+console.log(multiplier.multiple());
 
 /**
  * arguments object no longer bound with arrow functions

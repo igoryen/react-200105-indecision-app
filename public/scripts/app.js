@@ -32,6 +32,24 @@ var user = {
 };
 console.log(user.printPlacesLived());
 
+// challenge area
+
+var multiplier = {
+    // factors - array of numbers
+    factors: [10, 20, 30],
+    // factor - single number
+    factor: 3,
+    // multiply - return a new array where the numbers have been multiplied
+    multiple: function multiple() {
+        var _this2 = this;
+
+        return this.factors.map(function (f) {
+            return f * _this2.factor;
+        });
+    }
+};
+console.log(multiplier.multiple());
+
 /**
  * arguments object no longer bound with arrow functions
  * 05 - print out the arguments object
