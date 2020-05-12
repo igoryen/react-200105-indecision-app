@@ -6,6 +6,11 @@ var app = {
     options: ['One', 'Two']
 };
 
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault(); // (10)
+    console.log('form submitted!');
+};
+
 // JSX - Javascript XML
 var template = React.createElement(
     "div",
@@ -37,6 +42,16 @@ var template = React.createElement(
             "li",
             null,
             "item 2"
+        )
+    ),
+    React.createElement(
+        "form",
+        { onSubmit: onFormSubmit },
+        React.createElement("input", { type: "text", name: "option" }),
+        React.createElement(
+            "button",
+            null,
+            "Add Option"
         )
     )
 );
@@ -77,3 +92,7 @@ var template2 = React.createElement(
 
 var appRoot = document.getElementById("app");
 ReactDOM.render(template, appRoot);
+
+/**
+ * 10 - Stop the full-page refresh so that other code below can be run. 
+ */

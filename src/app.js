@@ -4,6 +4,10 @@ const app = {
     options: ['One', 'Two']
 };
 
+const onFormSubmit = (e) => {
+    e.preventDefault(); // (10)
+    console.log('form submitted!');
+}
 
 // JSX - Javascript XML
 const template = (
@@ -14,7 +18,11 @@ const template = (
         <ol>
             <li>item 1</li>
             <li>item 2</li>
-        </ol>  
+        </ol>
+        <form onSubmit={onFormSubmit}>
+            <input type="text" name="option"/>
+            <button>Add Option</button>
+        </form>
     </div>
 ); 
 
@@ -40,3 +48,7 @@ const template2 = (
 
 const appRoot = document.getElementById("app");
 ReactDOM.render(template, appRoot);
+
+/**
+ * 10 - Stop the full-page refresh so that other code below can be run. 
+ */
