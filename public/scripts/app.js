@@ -78,7 +78,9 @@ var template2 = React.createElement(
 //==========================================
 var count = 0;
 var addOne = function addOne() {
-    console.log('addOne');
+    count++;
+    console.log('addOne', count);
+    renderCounterApp();
 };
 var minOne = function minOne() {
     console.log('minOne');
@@ -86,37 +88,42 @@ var minOne = function minOne() {
 var reset = function reset() {
     console.log('Reset');
 };
-var templateTwo = // (10)
-React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        "Count: ",
-        count
-    ),
-    React.createElement(
-        "button",
-        { onClick: addOne },
-        "+1"
-    ),
-    React.createElement(
-        "button",
-        { onClick: minOne },
-        "-1"
-    ),
-    React.createElement(
-        "button",
-        { onClick: reset },
-        "Reset"
-    )
-);
 
 var appRoot = document.getElementById("app");
 // ReactDOM.render(template2, appRoot);
 // ReactDOM.render(template, appRoot);
-ReactDOM.render(templateTwo, appRoot);
+
+var renderCounterApp = function renderCounterApp() {
+    var templateTwo = // (10)
+    React.createElement(
+        "div",
+        null,
+        React.createElement(
+            "h1",
+            null,
+            "Count: ",
+            count
+        ),
+        React.createElement(
+            "button",
+            { onClick: addOne },
+            "+1"
+        ),
+        React.createElement(
+            "button",
+            { onClick: minOne },
+            "-1"
+        ),
+        React.createElement(
+            "button",
+            { onClick: reset },
+            "Reset"
+        )
+    );
+    ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
 
 /**
  * 10 - this is an Object

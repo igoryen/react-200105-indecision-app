@@ -41,7 +41,9 @@ const template2 = (
 //==========================================
 let count = 0;
 const addOne = () => {
-    console.log('addOne')
+    count++;
+    console.log('addOne', count);
+    renderCounterApp();
 };
 const minOne = () => {
     console.log('minOne')
@@ -49,20 +51,24 @@ const minOne = () => {
 const reset = () => {
     console.log('Reset')
 };
-const templateTwo = ( // (10)
-    <div>
-        <h1>Count: {count}</h1>
-        <button onClick={addOne}>+1</button>
-        <button onClick={minOne}>-1</button>
-        <button onClick={reset}>Reset</button>
-    </div>
-);
-
 
 const appRoot = document.getElementById("app");
 // ReactDOM.render(template2, appRoot);
 // ReactDOM.render(template, appRoot);
-ReactDOM.render(templateTwo, appRoot);
+
+const renderCounterApp =() => {
+    const templateTwo = ( // (10)
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={addOne}>+1</button>
+            <button onClick={minOne}>-1</button>
+            <button onClick={reset}>Reset</button>
+        </div>
+    );
+    ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp()
 
 /**
  * 10 - this is an Object
