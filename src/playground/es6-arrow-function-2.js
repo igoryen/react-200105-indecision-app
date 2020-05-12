@@ -1,17 +1,15 @@
-"use strict";
-
-var add = function add(a, b) {
+const add = function(a,b) {
     console.log(arguments); // (5)
     return a + b;
-};
-console.log(add(55, 1, 1000)); // (10)
+}
+console.log(add(55,1,1000)); // (10)
 
-var adicionar = function adicionar(a, b) {
+const adicionar = (a,b) => {
     // console.log(arguments);// (5)
     return a + b;
-};
+}
 
-console.log(adicionar(55, 1, 1000)); // (20)
+console.log(adicionar(55,1,1000)); // (20)
 
 /**
  * arguments object no longer bound with arrow functions
