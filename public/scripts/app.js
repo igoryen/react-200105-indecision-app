@@ -87,6 +87,13 @@ var renderApp = function renderApp() {
             { onClick: wipeAll },
             "Remove ALL"
         ),
+        [99, 98, 87] // (50)
+        ,
+        99,
+        ", ",
+        98,
+        ", ",
+        97,
         React.createElement(
             "ol",
             null,
@@ -120,4 +127,5 @@ renderApp();
 /**
  * 10 - Stop the full-page refresh so that other code below can be run. 
  * 20 - element on which the event was fired, here <form>
+ * 50 - JSX doesn't support objects.
  */

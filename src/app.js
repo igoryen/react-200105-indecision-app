@@ -50,6 +50,10 @@ const renderApp = () => {
             {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
             <p>{app.options.length}</p>
             <button onClick={wipeAll}>Remove ALL</button>
+            {
+                [99, 98, 87] // (50)
+            }
+            {99}, {98}, {97}
             <ol>
                 <li>item 1</li>
                 <li>item 2</li>
@@ -68,4 +72,5 @@ renderApp();
 /**
  * 10 - Stop the full-page refresh so that other code below can be run. 
  * 20 - element on which the event was fired, here <form>
+ * 50 - JSX doesn't support objects.
  */
