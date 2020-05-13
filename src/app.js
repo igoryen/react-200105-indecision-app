@@ -51,9 +51,8 @@ const renderApp = () => {
             <p>{app.options.length}</p>
             <button onClick={wipeAll}>Remove ALL</button>
             {
-                [99, 98, 87] // (50)
+                [99, 98, 87, 'Mike Smith', null, undefined, true] // (50)
             }
-            {99}, {98}, {97}
             <ol>
                 <li>item 1</li>
                 <li>item 2</li>
