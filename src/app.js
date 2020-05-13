@@ -53,6 +53,7 @@ const renderApp = () => {
             {
                 [99, 98, 87, 'Mike Smith', null, undefined, true] // (50)
             }
+            {<p>Para</p>}
             <ol>
                 <li>item 1</li>
                 <li>item 2</li>

@@ -90,6 +90,11 @@ var renderApp = function renderApp() {
         [99, 98, 87, 'Mike Smith', null, undefined, true] // (50)
         ,
         React.createElement(
+            "p",
+            null,
+            "Para"
+        ),
+        React.createElement(
             "ol",
             null,
             React.createElement(
