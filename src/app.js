@@ -39,6 +39,8 @@ const template2 = (
     </div> 
 );
 
+const numbers = [55, 101, 1000];
+
 const appRoot = document.getElementById("app");
 
 const renderApp = () => {
@@ -51,10 +53,9 @@ const renderApp = () => {
             <p>{app.options.length}</p>
             <button onClick={wipeAll}>Remove ALL</button>
             {
-                [<p key="1">a</p>,
-                 <p key="2">b</p>,
-                 <p key="3">c</p>
-                ]// (50)
+                numbers.map((number) => {
+                    return <p key={number}>Number: {number}</p>;
+                })
             }
             <ol>
                 <li>item 1</li>
