@@ -87,13 +87,20 @@ var renderApp = function renderApp() {
             { onClick: wipeAll },
             "Remove ALL"
         ),
-        [99, 98, 87, 'Mike Smith', null, undefined, true] // (50)
-        ,
-        React.createElement(
+        [React.createElement(
             "p",
             null,
-            "Para"
-        ),
+            "a"
+        ), React.createElement(
+            "p",
+            null,
+            "b"
+        ), React.createElement(
+            "p",
+            null,
+            "c"
+        )] // (50)
+        ,
         React.createElement(
             "ol",
             null,
