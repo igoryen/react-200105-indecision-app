@@ -52,9 +52,7 @@ const renderApp = () => {
             <button onClick={wipeAll}>Remove ALL</button>
             <ol>
                 {
-                    app.options.map((opt) => {
-                        return <li key={opt}>{opt}</li>
-                    })
+                    app.options.map((opt) => <li key={opt}>{opt}</li>)
                 }
             </ol>
             <form onSubmit={onFormSubmit}>
