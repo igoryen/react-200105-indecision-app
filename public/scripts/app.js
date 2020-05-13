@@ -55,8 +55,6 @@ var template2 = React.createElement(
     getLocation(user.location)
 );
 
-var numbers = [55, 101, 1000];
-
 var appRoot = document.getElementById("app");
 
 var renderApp = function renderApp() {
@@ -89,27 +87,16 @@ var renderApp = function renderApp() {
             { onClick: wipeAll },
             "Remove ALL"
         ),
-        numbers.map(function (number) {
-            return React.createElement(
-                "p",
-                { key: number },
-                "Number: ",
-                number
-            );
-        }),
         React.createElement(
             "ol",
             null,
-            React.createElement(
-                "li",
-                null,
-                "item 1"
-            ),
-            React.createElement(
-                "li",
-                null,
-                "item 2"
-            )
+            app.options.map(function (opt) {
+                return React.createElement(
+                    "li",
+                    { key: opt },
+                    opt
+                );
+            })
         ),
         React.createElement(
             "form",

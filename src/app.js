@@ -39,8 +39,6 @@ const template2 = (
     </div> 
 );
 
-const numbers = [55, 101, 1000];
-
 const appRoot = document.getElementById("app");
 
 const renderApp = () => {
@@ -52,14 +50,12 @@ const renderApp = () => {
             {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
             <p>{app.options.length}</p>
             <button onClick={wipeAll}>Remove ALL</button>
-            {
-                numbers.map((number) => {
-                    return <p key={number}>Number: {number}</p>;
-                })
-            }
             <ol>
-                <li>item 1</li>
-                <li>item 2</li>
+                {
+                    app.options.map((opt) => {
+                        return <li key={opt}>{opt}</li>
+                    })
+                }
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
