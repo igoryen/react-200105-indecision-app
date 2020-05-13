@@ -19,6 +19,15 @@ var render = function render() {
             'button',
             { onClick: toggleViz },
             btnlbl
+        ),
+        viz && React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'p',
+                null,
+                'Hey, these are some details you can now see!'
+            )
         )
     );
     ReactDOM.render(jsx, document.getElementById('app'));

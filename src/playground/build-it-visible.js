@@ -9,6 +9,11 @@ const render = () => {
         <div>
             <h1>Visibility Toggle</h1>
             <button onClick={toggleViz}>{btnlbl}</button>
+            { viz && (
+                <div>
+                    <p>Hey, these are some details you can now see!</p>
+                </div>
+            )}
         </div>
     ); 
     ReactDOM.render(jsx, document.getElementById('app'));
