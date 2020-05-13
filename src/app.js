@@ -39,6 +39,13 @@ const template2 = (
     </div> 
 );
 
+// D6D = decide
+const onD6D = () => {
+    const rno = Math.floor(Math.random() * app.options.length); // rno = random number
+    const opt = app.options[rno];
+    alert(opt);
+};
+
 const appRoot = document.getElementById("app");
 
 const renderApp = () => {
@@ -48,7 +55,7 @@ const renderApp = () => {
             <h1>{app.title}</h1>
             {app.subtitle && <p>{app.subtitle}</p> }
             {(app.options && app.options.length > 0) && <p>Here are your options:</p>}
-            <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} onClick={onD6D}>What should I do?</button>
             <button onClick={wipeAll}>Remove ALL</button>
             <ol>
                 {
@@ -69,5 +76,4 @@ renderApp();
 /**
  * 10 - Stop the full-page refresh so that other code below can be run. 
  * 20 - element on which the event was fired, here <form>
- * 50 - JSX doesn't support objects.
  */

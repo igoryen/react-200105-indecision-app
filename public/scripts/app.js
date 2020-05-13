@@ -55,6 +55,13 @@ var template2 = React.createElement(
     getLocation(user.location)
 );
 
+// D6D = decide
+var onD6D = function onD6D() {
+    var rno = Math.floor(Math.random() * app.options.length); // rno = random number
+    var opt = app.options[rno];
+    alert(opt);
+};
+
 var appRoot = document.getElementById("app");
 
 var renderApp = function renderApp() {
@@ -78,9 +85,9 @@ var renderApp = function renderApp() {
             "Here are your options:"
         ),
         React.createElement(
-            "p",
-            null,
-            app.options.length
+            "button",
+            { disabled: app.options.length === 0, onClick: onD6D },
+            "What should I do?"
         ),
         React.createElement(
             "button",
@@ -117,5 +124,4 @@ renderApp();
 /**
  * 10 - Stop the full-page refresh so that other code below can be run. 
  * 20 - element on which the event was fired, here <form>
- * 50 - JSX doesn't support objects.
  */
