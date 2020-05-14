@@ -2,8 +2,7 @@ class Person {
     constructor(name = 'Anonymous') {
         this.name = name;// (10)
     }
-    getGreeting(){
-        // return 'Hi! I am ' + this.name + '!';
+    getGreeting() {
         return `Hi! I am ${this.name}!`;// (20)
     }
 }
