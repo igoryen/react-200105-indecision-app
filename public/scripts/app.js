@@ -89,11 +89,6 @@ var Traveler = function (_Person2) {
             }
             return greet;
         }
-        // homeLoc
-        // override getGreeting
-        // if have homeLoc - Hi, I am AndrewMead. I'm visiting from Philadelphia
-        // else Hi, I am AndrewMead.
-
     }]);
 
     return Traveler;
@@ -102,7 +97,7 @@ var Traveler = function (_Person2) {
 var me = new Traveler('Andrew Mead', 26, 'Philadelphia');
 console.log(me.getGreeting());
 
-var other = new Traveler(); // (50)
+var other = new Traveler(undefined, undefined, "Nowhere"); // (50)
 console.log(other.getGreeting());
 
 /**

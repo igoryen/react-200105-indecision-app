@@ -40,16 +40,12 @@ class Traveler extends Person {
         }
         return greet;
     }
-    // homeLoc
-    // override getGreeting
-    // if have homeLoc - Hi, I am AndrewMead. I'm visiting from Philadelphia
-    // else Hi, I am AndrewMead.
 }
 
 const me = new Traveler('Andrew Mead', 26, 'Philadelphia');
 console.log(me.getGreeting());
 
-const other = new Traveler(); // (50)
+const other = new Traveler( undefined, undefined, "Nowhere"); // (50)
 console.log(other.getGreeting());
 
 /**
