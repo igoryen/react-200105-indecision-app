@@ -53,7 +53,7 @@ var Header = function (_React$Component2) {
                 React.createElement(
                     "h1",
                     null,
-                    "Indecision"
+                    this.props.title
                 ),
                 React.createElement(
                     "h2",
