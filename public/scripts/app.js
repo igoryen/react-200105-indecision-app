@@ -43,7 +43,7 @@ var Student = function (_Person) {
         _classCallCheck(this, Student);
 
         // (30)
-        var _this = _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).call(this));
+        var _this = _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).call(this, name, age));
 
         _this.major = major;
         return _this;
@@ -58,6 +58,9 @@ var Student = function (_Person) {
         key: 'getDesc',
         value: function getDesc() {
             var desc = _get(Student.prototype.__proto__ || Object.getPrototypeOf(Student.prototype), 'getDesc', this).call(this);
+            if (this.hasMajor()) {
+                desc += 'Their major is ' + this.major + '.';
+            }
             return desc;
         }
     }]);
@@ -66,10 +69,10 @@ var Student = function (_Person) {
 }(Person);
 
 var me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log('getDesc', me.getDesc());
+console.log(me.getDesc());
 
 var other = new Student();
-console.log('getDesc', other.getDesc());
+console.log(other.getDesc());
 
 /**
  * 10 - 'this' refers to the instance of the class.

@@ -13,7 +13,7 @@ class Person {
 
 class Student extends Person {
     constructor(name, age, major) {
-        super();// (30)
+        super(name, age);// (30)
         this.major = major;
     }
     hasMajor() {
@@ -21,15 +21,18 @@ class Student extends Person {
     }
     getDesc() {
         let desc = super.getDesc();
+        if(this.hasMajor()) {
+            desc += `Their major is ${this.major}.`;
+        }
         return desc;
     }
 }
 
 const me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log('getDesc', me.getDesc());
+console.log(me.getDesc());
 
 const other = new Student();
-console.log('getDesc', other.getDesc());
+console.log(other.getDesc());
 
 /**
  * 10 - 'this' refers to the instance of the class.
