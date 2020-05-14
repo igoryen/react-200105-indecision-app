@@ -1,6 +1,6 @@
 class Person {
-    constructor(name) {
-        this.name = name || 'default';// (10)
+    constructor(name = 'Anonymous') {
+        this.name = name;// (10)
     }
 }
 

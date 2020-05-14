@@ -2,10 +2,12 @@
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Person = function Person(name) {
+var Person = function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
+
     _classCallCheck(this, Person);
 
-    this.name = name || 'default'; // (10)
+    this.name = name; // (10)
 };
 
 var me = new Person('Andrew Mead');
