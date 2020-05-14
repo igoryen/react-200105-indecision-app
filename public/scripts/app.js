@@ -111,17 +111,13 @@ var Options = function (_React$Component4) {
             return React.createElement(
                 'div',
                 null,
-                React.createElement(
-                    'h3',
-                    null,
-                    'Here are your options'
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    this.props.options.length
-                ),
-                React.createElement(Option, null)
+                this.props.options.map(function (opt) {
+                    return React.createElement(
+                        'p',
+                        { key: opt },
+                        opt
+                    );
+                })
             );
         }
     }]);
