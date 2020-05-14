@@ -4,7 +4,7 @@ class Person {
     }
     getGreeting(){
         // return 'Hi! I am ' + this.name + '!';
-        return `Hi! I am test!`;// (20)
+        return `Hi! I am ${this.name}!`;// (20)
     }
 }
 
@@ -16,5 +16,5 @@ console.log(other.getGreeting());
 
 /**
  * 10 - 'this' refers to the instance of the class.
- * 20 - template string.
+ * 20 - template string. Uses graves.
  */
