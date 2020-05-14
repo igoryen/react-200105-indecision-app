@@ -52,16 +52,21 @@ var Student = function (_Person) {
         value: function hasMajor() {
             return !!this.major;
         }
+    }, {
+        key: 'getDesc',
+        value: function getDesc() {
+            return 'testing';
+        }
     }]);
 
     return Student;
 }(Person);
 
 var me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log('hasMajor?', me.hasMajor());
+console.log('getDesc', me.getDesc());
 
 var other = new Student();
-console.log('hasMajor?', other.hasMajor());
+console.log('getDesc', other.getDesc());
 
 /**
  * 10 - 'this' refers to the instance of the class.
