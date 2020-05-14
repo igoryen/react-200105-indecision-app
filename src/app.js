@@ -2,7 +2,7 @@ class IndecisionApp extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header title="Test"/>
                 <Action />
                 <Options />
                 <AddOption />
@@ -13,6 +13,7 @@ class IndecisionApp extends React.Component {
 
 class Header extends React.Component {
     render() {
+        console.log(this.props)
         return (
             <div>
                 <h1>Indecision</h1>

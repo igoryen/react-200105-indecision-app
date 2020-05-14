@@ -23,7 +23,7 @@ var IndecisionApp = function (_React$Component) {
             return React.createElement(
                 "div",
                 null,
-                React.createElement(Header, null),
+                React.createElement(Header, { title: "Test" }),
                 React.createElement(Action, null),
                 React.createElement(Options, null),
                 React.createElement(AddOption, null)
@@ -46,6 +46,7 @@ var Header = function (_React$Component2) {
     _createClass(Header, [{
         key: "render",
         value: function render() {
+            console.log(this.props);
             return React.createElement(
                 "div",
                 null,
