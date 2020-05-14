@@ -11,10 +11,14 @@ class Person {
     }
 }
 
-const me = new Person('Andrew Mead', 26);
+class Student extends Person {
+
+}
+
+const me = new Student('Andrew Mead', 26);
 console.log(me.getDesc());
 
-const other = new Person();
+const other = new Student();
 console.log(other.getDesc());
 
 /**
