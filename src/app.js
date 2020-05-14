@@ -1,8 +1,9 @@
 class IndecisionApp extends React.Component {
     render() {
+        const title = 'Indecision';
         return (
             <div>
-                <Header title="Test"/>
+                <Header title={title}/>
                 <Action />
                 <Options />
                 <AddOption />
@@ -13,7 +14,6 @@ class IndecisionApp extends React.Component {
 
 class Header extends React.Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 <h1>{this.props.title}</h1>
