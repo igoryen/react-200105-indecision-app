@@ -28,14 +28,34 @@ class Student extends Person {
     }
 }
 
-const me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log(me.getDesc());
+class Traveler extends Person {
+    constructor(name, age, homeloc) {
+        super(name, age);
+        this.homeloc = homeloc; // (40)
+    }
+    getGreeting() {
+        let greet = super.getGreeting();
+        if(this.homeloc) {
+            greet += ` I'm visiting from ${this.homeloc}`
+        }
+        return greet;
+    }
+    // homeLoc
+    // override getGreeting
+    // if have homeLoc - Hi, I am AndrewMead. I'm visiting from Philadelphia
+    // else Hi, I am AndrewMead.
+}
 
-const other = new Student();
-console.log(other.getDesc());
+const me = new Traveler('Andrew Mead', 26, 'Philadelphia');
+console.log(me.getGreeting());
+
+const other = new Traveler(); // (50)
+console.log(other.getGreeting());
 
 /**
  * 10 - 'this' refers to the instance of the class.
  * 20 - template string. Uses graves.
  * 30 - call parent's constructor.
+ * 40 - home location
+ * 50 - can also be 'new Traveler(undefined, undefined, "Nowhere")'
  */

@@ -68,14 +68,47 @@ var Student = function (_Person) {
     return Student;
 }(Person);
 
-var me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log(me.getDesc());
+var Traveler = function (_Person2) {
+    _inherits(Traveler, _Person2);
 
-var other = new Student();
-console.log(other.getDesc());
+    function Traveler(name, age, homeloc) {
+        _classCallCheck(this, Traveler);
+
+        var _this2 = _possibleConstructorReturn(this, (Traveler.__proto__ || Object.getPrototypeOf(Traveler)).call(this, name, age));
+
+        _this2.homeloc = homeloc; // (40)
+        return _this2;
+    }
+
+    _createClass(Traveler, [{
+        key: 'getGreeting',
+        value: function getGreeting() {
+            var greet = _get(Traveler.prototype.__proto__ || Object.getPrototypeOf(Traveler.prototype), 'getGreeting', this).call(this);
+            if (this.homeloc) {
+                greet += ' I\'m visiting from ' + this.homeloc;
+            }
+            return greet;
+        }
+        // homeLoc
+        // override getGreeting
+        // if have homeLoc - Hi, I am AndrewMead. I'm visiting from Philadelphia
+        // else Hi, I am AndrewMead.
+
+    }]);
+
+    return Traveler;
+}(Person);
+
+var me = new Traveler('Andrew Mead', 26, 'Philadelphia');
+console.log(me.getGreeting());
+
+var other = new Traveler(); // (50)
+console.log(other.getGreeting());
 
 /**
  * 10 - 'this' refers to the instance of the class.
  * 20 - template string. Uses graves.
  * 30 - call parent's constructor.
+ * 40 - home location
+ * 50 - can also be 'new Traveler(undefined, undefined, "Nowhere")'
  */
