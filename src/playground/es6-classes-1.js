@@ -16,13 +16,16 @@ class Student extends Person {
         super();// (30)
         this.major = major;
     }
+    hasMajor() {
+        return !!this.major;
+    }
 }
 
 const me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log(me);
+console.log('hasMajor?', me.hasMajor());
 
 const other = new Student();
-console.log(other);
+console.log('hasMajor?', other.hasMajor());
 
 /**
  * 10 - 'this' refers to the instance of the class.

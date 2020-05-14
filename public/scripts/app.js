@@ -47,14 +47,21 @@ var Student = function (_Person) {
         return _this;
     }
 
+    _createClass(Student, [{
+        key: 'hasMajor',
+        value: function hasMajor() {
+            return !!this.major;
+        }
+    }]);
+
     return Student;
 }(Person);
 
 var me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log(me);
+console.log('hasMajor?', me.hasMajor());
 
 var other = new Student();
-console.log(other);
+console.log('hasMajor?', other.hasMajor());
 
 /**
  * 10 - 'this' refers to the instance of the class.
