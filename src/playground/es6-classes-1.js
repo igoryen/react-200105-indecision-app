@@ -20,7 +20,8 @@ class Student extends Person {
         return !!this.major;
     }
     getDesc() {
-        return 'testing';
+        let desc = super.getDesc();
+        return desc;
     }
 }
 
