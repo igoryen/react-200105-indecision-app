@@ -3,7 +3,7 @@ class Person {
         this.name = name;// (10)
     }
     getGreeting(){
-        return 'Hi!';
+        return this.name;
     }
 }
 
