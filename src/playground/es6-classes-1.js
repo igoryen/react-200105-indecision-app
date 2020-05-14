@@ -12,16 +12,20 @@ class Person {
 }
 
 class Student extends Person {
-
+    constructor(name, age, major) {
+        super();// (30)
+        this.major = major;
+    }
 }
 
-const me = new Student('Andrew Mead', 26);
-console.log(me.getDesc());
+const me = new Student('Andrew Mead', 26, 'Computer Science');
+console.log(me);
 
 const other = new Student();
-console.log(other.getDesc());
+console.log(other);
 
 /**
  * 10 - 'this' refers to the instance of the class.
  * 20 - template string. Uses graves.
+ * 30 - call parent's constructor.
  */

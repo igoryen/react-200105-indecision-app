@@ -37,22 +37,27 @@ var Person = function () {
 var Student = function (_Person) {
     _inherits(Student, _Person);
 
-    function Student() {
+    function Student(name, age, major) {
         _classCallCheck(this, Student);
 
-        return _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).apply(this, arguments));
+        // (30)
+        var _this = _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).call(this));
+
+        _this.major = major;
+        return _this;
     }
 
     return Student;
 }(Person);
 
-var me = new Student('Andrew Mead', 26);
-console.log(me.getDesc());
+var me = new Student('Andrew Mead', 26, 'Computer Science');
+console.log(me);
 
 var other = new Student();
-console.log(other.getDesc());
+console.log(other);
 
 /**
  * 10 - 'this' refers to the instance of the class.
  * 20 - template string. Uses graves.
+ * 30 - call parent's constructor.
  */
