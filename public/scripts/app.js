@@ -111,11 +111,21 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
+        key: 'rmAll',
+        value: function rmAll() {
+            alert('Remove All');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
+                React.createElement(
+                    'button',
+                    { onClick: this.rmAll },
+                    'Remove all'
+                ),
                 this.props.options.map(function (opt) {
                     return React.createElement(Option, { key: opt, optText: opt });
                 })
