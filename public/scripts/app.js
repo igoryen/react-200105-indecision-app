@@ -17,6 +17,7 @@ var IndecisionApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
         _this.delOpts = _this.delOpts.bind(_this);
+        _this.pickOpt = _this.pickOpt.bind(_this);
         _this.state = {
             options: ['Thing one', 'Thing two', 'Thing 3']
         };
@@ -33,6 +34,13 @@ var IndecisionApp = function (_React$Component) {
             });
         }
     }, {
+        key: 'pickOpt',
+        value: function pickOpt() {
+            var rno = Math.floor(Math.random() * this.state.options.length); // rno = random number
+            var opt = this.state.options[rno];
+            alert(opt);
+        }
+    }, {
         key: 'render',
         value: function render() {
             var title = 'Indecision';
@@ -41,7 +49,10 @@ var IndecisionApp = function (_React$Component) {
                 'div',
                 null,
                 React.createElement(Header, { title: title, subtitle: subtitle }),
-                React.createElement(Action, { hasOpts: this.state.options > 0 }),
+                React.createElement(Action, {
+                    hasOpts: this.state.options.length > 0,
+                    pickOpt: this.pickOpt
+                }),
                 React.createElement(Options, {
                     options: this.state.options,
                     delOpts: this.delOpts
@@ -96,11 +107,6 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
-        key: 'handlePick',
-        value: function handlePick() {
-            alert('handlePick');
-        }
-    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -109,7 +115,7 @@ var Action = function (_React$Component3) {
                 React.createElement(
                     'button',
                     {
-                        onClick: this.handlePick,
+                        onClick: this.props.pickOpt,
                         disabled: !this.props.hasOpts
                     },
                     'What should I do?'
