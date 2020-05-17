@@ -16,6 +16,7 @@ var VizTog = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (VizTog.__proto__ || Object.getPrototypeOf(VizTog)).call(this, props));
 
+        _this.togViz = _this.togViz.bind(_this);
         _this.state = {
             viz: false
         };
@@ -25,7 +26,11 @@ var VizTog = function (_React$Component) {
     _createClass(VizTog, [{
         key: 'togViz',
         value: function togViz() {
-            alert('working');
+            this.setState(function (prevState) {
+                return {
+                    viz: !prevState.viz
+                };
+            });
         }
     }, {
         key: 'render',
@@ -41,7 +46,8 @@ var VizTog = function (_React$Component) {
                 React.createElement(
                     'button',
                     { onClick: this.togViz },
-                    this.state.viz ? 'Hide' : 'Show'
+                    this.state.viz ? 'Hide' : 'Show',
+                    ' deets.'
                 ),
                 this.state.viz && React.createElement(
                     'div',
