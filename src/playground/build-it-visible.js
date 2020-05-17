@@ -1,22 +1,29 @@
-let viz = false; // viz = visibility
-const toggleViz = () => {
-    viz = !viz;
-    render();
-};
-const render = () => {
-    let btnlbl = (viz ? 'Hide' : 'Show') + ' details'; 
-    const jsx = (
-        <div>
-            <h1>Visibility Toggle</h1>
-            <button onClick={toggleViz}>{btnlbl}</button>
-            { viz && (
-                <div>
-                    <p>Hey, these are some details you can now see!</p>
-                </div>
-            )}
-        </div>
-    ); 
-    ReactDOM.render(jsx, document.getElementById('app'));
-};
+class VizTog extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            viz: false
+        };
+    }
+    
+    togViz() {
+        alert('working');
+    }
+    render() {
+        return(    
+            <div>
+                <h1>Visibility Toggle</h1>
+                <button onClick={this.togViz}>
+                    {this.state.viz ? 'Hide' : 'Show'}
+                </button>
+                { this.state.viz && (
+                    <div>
+                        <p>Hey, these are some details you can now see!</p>
+                    </div>
+                )}
+            </div>
+        );
+    }
+}
 
-render();
+ReactDOM.render(<VizTog />, document.getElementById('app'));
