@@ -39,6 +39,10 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props) { // (42)
+        super(props); // (45)
+        this.rmAll = this.rmAll.bind(this); // (47)
+    }
     rmAll(){
         console.log(this.props.options); // (50)
         //alert('Remove All');
@@ -46,7 +50,7 @@ class Options extends React.Component {
     render(){
         return (
             <div>
-                <button onClick={this.rmAll.bind(this)}>Remove all</button>
+                <button onClick={this.rmAll}>Remove all</button>
                 { this.props.options.map( (opt) => <Option key={opt} optText={opt} /> ) }
             </div>
         );
@@ -86,5 +90,8 @@ class AddOption extends React.Component {
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 
 /**
+ * 42 - pass in the `props` object
+ * 45 - to get access to `this.props`
+ * 47 - ensure that context is correct on every call of `rmAll()`
  * 50 - 'this' binding is broken. Error: 'this' is undefined.
  */

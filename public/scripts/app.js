@@ -104,10 +104,15 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
-    function Options() {
+    function Options(props) {
         _classCallCheck(this, Options);
 
-        return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
+        // (45)
+        var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props)); // (42)
+
+
+        _this4.rmAll = _this4.rmAll.bind(_this4); // (47)
+        return _this4;
     }
 
     _createClass(Options, [{
@@ -124,7 +129,7 @@ var Options = function (_React$Component4) {
                 null,
                 React.createElement(
                     'button',
-                    { onClick: this.rmAll.bind(this) },
+                    { onClick: this.rmAll },
                     'Remove all'
                 ),
                 this.props.options.map(function (opt) {
@@ -204,5 +209,8 @@ var AddOption = function (_React$Component6) {
 ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
 
 /**
+ * 42 - pass in the `props` object
+ * 45 - to get access to `this.props`
+ * 47 - ensure that context is correct on every call of `rmAll()`
  * 50 - 'this' binding is broken. Error: 'this' is undefined.
  */
