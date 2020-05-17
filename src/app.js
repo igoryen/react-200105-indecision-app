@@ -40,7 +40,8 @@ class Action extends React.Component {
 
 class Options extends React.Component {
     rmAll(){
-        alert('Remove All');
+        console.log(this.props.options); // (50)
+        //alert('Remove All');
     }
     render(){
         return (
@@ -83,3 +84,7 @@ class AddOption extends React.Component {
 }
 
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+
+/**
+ * 50 - 'this' binding is broken. Error: 'this' is undefined.
+ */

@@ -113,7 +113,8 @@ var Options = function (_React$Component4) {
     _createClass(Options, [{
         key: 'rmAll',
         value: function rmAll() {
-            alert('Remove All');
+            console.log(this.props.options); // (50)
+            //alert('Remove All');
         }
     }, {
         key: 'render',
@@ -201,3 +202,7 @@ var AddOption = function (_React$Component6) {
 }(React.Component);
 
 ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
+
+/**
+ * 50 - 'this' binding is broken. Error: 'this' is undefined.
+ */
