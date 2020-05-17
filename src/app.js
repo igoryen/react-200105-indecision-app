@@ -1,3 +1,12 @@
+const obj = {
+    name: 'Vikram',
+    getName() {
+        return this.name; // 'this' binding: it works.
+    } 
+};
+
+console.log(obj.getName());
+
 class IndecisionApp extends React.Component {
     render() {
         const title = 'Indecision';
