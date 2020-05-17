@@ -1,17 +1,3 @@
-const obj = {
-    name: 'Vikram',
-    getName() {
-        return this.name; // 'this' binding: it works.
-    } 
-};
-
-// getName does here is just a regular function
-// it does not get the context of obj.getName
-// a var gets the context of A if you use .bind(A)
-// 'A' can be a forced object.
-const getName = obj.getName.bind({ name: 'Andrew'}); 
-console.log(getName());
-
 class IndecisionApp extends React.Component {
     render() {
         const title = 'Indecision';
@@ -60,7 +46,7 @@ class Options extends React.Component {
     render(){
         return (
             <div>
-                <button onClick={this.rmAll}>Remove all</button>
+                <button onClick={this.rmAll.bind(this)}>Remove all</button>
                 { this.props.options.map( (opt) => <Option key={opt} optText={opt} /> ) }
             </div>
         );

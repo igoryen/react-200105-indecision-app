@@ -8,20 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var obj = {
-    name: 'Vikram',
-    getName: function getName() {
-        return this.name; // 'this' binding: it works.
-    }
-};
-
-// getName does here is just a regular function
-// it does not get the context of obj.getName
-// a var gets the context of A if you use .bind(A)
-// 'A' can be a forced object.
-var getName = obj.getName.bind({ name: 'Andrew' });
-console.log(getName());
-
 var IndecisionApp = function (_React$Component) {
     _inherits(IndecisionApp, _React$Component);
 
@@ -138,7 +124,7 @@ var Options = function (_React$Component4) {
                 null,
                 React.createElement(
                     'button',
-                    { onClick: this.rmAll },
+                    { onClick: this.rmAll.bind(this) },
                     'Remove all'
                 ),
                 this.props.options.map(function (opt) {
