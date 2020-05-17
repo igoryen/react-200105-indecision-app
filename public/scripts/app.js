@@ -18,7 +18,8 @@ var obj = {
 // getName does here is just a regular function
 // it does not get the context of obj.getName
 // a var gets the context of A if you use .bind(A)
-var getName = obj.getName.bind(obj);
+// 'A' can be a forced object.
+var getName = obj.getName.bind({ name: 'Andrew' });
 console.log(getName());
 
 var IndecisionApp = function (_React$Component) {
