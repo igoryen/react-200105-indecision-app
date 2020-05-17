@@ -5,7 +5,21 @@ const obj = {
     } 
 };
 
-console.log(obj.getName());
+// getName does here is just a regular function
+// it does not get the context of obj.getName
+// const getName = obj.getName; 
+// console.log(getName());
+
+
+//=============================================
+// regular functions have 'undefined' for their 'this' by default.
+const func = function(){
+    console.log(this);
+}
+func(); // returns 'undefined'
+//=============================================
+
+
 
 class IndecisionApp extends React.Component {
     render() {
