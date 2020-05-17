@@ -17,18 +17,8 @@ var obj = {
 
 // getName does here is just a regular function
 // it does not get the context of obj.getName
-// const getName = obj.getName; 
-// console.log(getName());
-
-
-//=============================================
-// regular functions have 'undefined' for their 'this' by default.
-var func = function func() {
-    console.log(this);
-};
-func(); // returns 'undefined'
-//=============================================
-
+var getName = obj.getName;
+console.log(getName());
 
 var IndecisionApp = function (_React$Component) {
     _inherits(IndecisionApp, _React$Component);
