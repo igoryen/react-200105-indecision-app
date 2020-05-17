@@ -17,7 +17,8 @@ var obj = {
 
 // getName does here is just a regular function
 // it does not get the context of obj.getName
-var getName = obj.getName;
+// a var gets the context of A if you use .bind(A)
+var getName = obj.getName.bind(obj);
 console.log(getName());
 
 var IndecisionApp = function (_React$Component) {

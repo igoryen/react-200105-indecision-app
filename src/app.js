@@ -7,7 +7,8 @@ const obj = {
 
 // getName does here is just a regular function
 // it does not get the context of obj.getName
-const getName = obj.getName; 
+// a var gets the context of A if you use .bind(A)
+const getName = obj.getName.bind(obj); 
 console.log(getName());
 
 class IndecisionApp extends React.Component {
