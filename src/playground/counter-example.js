@@ -11,7 +11,11 @@ class Counter extends React.Component {
     }
 
     handleAddOne() {
-        this.state.count = this.state.count + 1;
+        this.setState(() => {
+            return {
+                count: 1
+            }
+        });
         console.log(this.state);
     }
 
