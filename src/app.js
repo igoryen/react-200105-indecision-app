@@ -1,9 +1,17 @@
 class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
+        this.delOpts = this.delOpts.bind(this);
         this.state = {
             options: ['Thing one', 'Thing two', 'Thing 3']
         }
+    }
+    delOpts(){
+        this.setState(()=>{
+            return {
+                options: [] // wipe the state
+            }
+        });
     }
     render() {
         const title = 'Indecision';
@@ -12,7 +20,10 @@ class IndecisionApp extends React.Component {
             <div>
                 <Header title={title} subtitle={subtitle}/>
                 <Action hasOpts={this.state.options > 0}/>
-                <Options options={this.state.options}/>
+                <Options 
+                    options={this.state.options}
+                    delOpts={this.delOpts}
+                />
                 <AddOption />
             </div>
         )
@@ -49,18 +60,11 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-    constructor(props) { // (42)
-        super(props); // (45)
-        this.rmAll = this.rmAll.bind(this); // (47)
-    }
-    rmAll(){
-        console.log(this.props.options); // (50)
-        //alert('Remove All');
-    }
+
     render(){
         return (
             <div>
-                <button onClick={this.rmAll}>Remove all</button>
+                <button onClick={this.props.delOpts}>Remove all</button>
                 { this.props.options.map( (opt) => <Option key={opt} optText={opt} /> ) }
             </div>
         );
@@ -100,8 +104,4 @@ class AddOption extends React.Component {
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 
 /**
- * 42 - pass in the `props` object
- * 45 - to get access to `this.props`
- * 47 - ensure that context is correct on every call of `rmAll()`
- * 50 - 'this' binding is broken. Error: 'this' is undefined.
  */

@@ -16,6 +16,7 @@ var IndecisionApp = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
+        _this.delOpts = _this.delOpts.bind(_this);
         _this.state = {
             options: ['Thing one', 'Thing two', 'Thing 3']
         };
@@ -23,6 +24,15 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
+        key: 'delOpts',
+        value: function delOpts() {
+            this.setState(function () {
+                return {
+                    options: [] // wipe the state
+                };
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var title = 'Indecision';
@@ -32,7 +42,10 @@ var IndecisionApp = function (_React$Component) {
                 null,
                 React.createElement(Header, { title: title, subtitle: subtitle }),
                 React.createElement(Action, { hasOpts: this.state.options > 0 }),
-                React.createElement(Options, { options: this.state.options }),
+                React.createElement(Options, {
+                    options: this.state.options,
+                    delOpts: this.delOpts
+                }),
                 React.createElement(AddOption, null)
             );
         }
@@ -111,24 +124,13 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
-    function Options(props) {
+    function Options() {
         _classCallCheck(this, Options);
 
-        // (45)
-        var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props)); // (42)
-
-
-        _this4.rmAll = _this4.rmAll.bind(_this4); // (47)
-        return _this4;
+        return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
     }
 
     _createClass(Options, [{
-        key: 'rmAll',
-        value: function rmAll() {
-            console.log(this.props.options); // (50)
-            //alert('Remove All');
-        }
-    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -136,7 +138,7 @@ var Options = function (_React$Component4) {
                 null,
                 React.createElement(
                     'button',
-                    { onClick: this.rmAll },
+                    { onClick: this.props.delOpts },
                     'Remove all'
                 ),
                 this.props.options.map(function (opt) {
@@ -216,8 +218,4 @@ var AddOption = function (_React$Component6) {
 ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
 
 /**
- * 42 - pass in the `props` object
- * 45 - to get access to `this.props`
- * 47 - ensure that context is correct on every call of `rmAll()`
- * 50 - 'this' binding is broken. Error: 'this' is undefined.
  */
