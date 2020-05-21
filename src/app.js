@@ -57,53 +57,45 @@ class IndecisionApp extends React.Component {
     }
 }
 
-class Header extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.subtitle}</h2>
-            </div>
-        )
-    }
-}
+const Header = (props) => {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <h2>{props.subtitle}</h2>
+        </div>
+    )
+};
 
-class Action extends React.Component {
-    render() {
-        return (
-            <div>
-                <button 
-                    onClick={this.props.pickOpt}
-                    disabled={!this.props.hasOpts}
-                >
-                    What should I do?
-                </button>
-            </div>
-        )
-    }
-}
+// Convert CBC to SFC (Class-Based Comp to Stateless Functional Component)
+const Action = (props) => {
+    return (
+        <div>
+            <button 
+                onClick={props.pickOpt}
+                disabled={!props.hasOpts}
+            >
+                What should I do?
+            </button>
+        </div>
+    )
+};
 
-class Options extends React.Component {
+const Options = (props) => {
+    return (
+        <div>
+            <button onClick={props.delOpts}>Remove all</button>
+            { props.options.map( (opt) => <Option key={opt} optText={opt} /> ) }
+        </div>
+    );
+};
 
-    render(){
-        return (
-            <div>
-                <button onClick={this.props.delOpts}>Remove all</button>
-                { this.props.options.map( (opt) => <Option key={opt} optText={opt} /> ) }
-            </div>
-        );
-    }
-}
-
-class Option extends React.Component {
-    render() {
-        return (
-            <div>
-                {this.props.optText}
-            </div>
-        )
-    }
-}
+const Option = (props) => {
+    return (
+        <div>
+            {props.optText}
+        </div>
+    )
+};
 
 class AddOption extends React.Component {
     constructor(props){
@@ -137,16 +129,16 @@ class AddOption extends React.Component {
     }
 }
 
-const User = (props) => {
-    return (
-        <div>
-            <p>Name: {props.name}</p>
-            <p>Age: {props.age}</p>
-        </div>
-    );
-};
+// const User = (props) => {
+//     return (
+//         <div>
+//             <p>Name: {props.name}</p>
+//             <p>Age: {props.age}</p>
+//         </div>
+//     );
+// };
 
-ReactDOM.render(<User name="Andrew" age={26}/>, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp/>, document.getElementById('app'));
 
 /**
  */
