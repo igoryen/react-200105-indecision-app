@@ -137,16 +137,16 @@ class AddOption extends React.Component {
     }
 }
 
-const User = () => {
+const User = (props) => {
     return (
         <div>
-            <p>Name:</p>
-            <p>Age:</p>
+            <p>Name: {props.name}</p>
+            <p>Age: {props.age}</p>
         </div>
     );
 };
 
-ReactDOM.render(<User />, document.getElementById('app'));
+ReactDOM.render(<User name="Andrew" age={26}/>, document.getElementById('app'));
 
 /**
  */
