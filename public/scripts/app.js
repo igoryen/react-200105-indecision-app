@@ -20,7 +20,7 @@ var IndecisionApp = function (_React$Component) {
         _this.pickOpt = _this.pickOpt.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
         _this.state = {
-            options: ['Thing one', 'Thing two', 'Thing 3']
+            options: []
         };
         return _this;
     }
