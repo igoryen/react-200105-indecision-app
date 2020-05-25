@@ -68,7 +68,7 @@ var IndecisionApp = function (_React$Component) {
             return React.createElement(
                 'div',
                 null,
-                React.createElement(Header, { title: title, subtitle: subtitle }),
+                React.createElement(Header, { subtitle: subtitle }),
                 React.createElement(Action, {
                     hasOpts: this.state.options.length > 0,
                     pickOpt: this.pickOpt
@@ -102,6 +102,10 @@ var Header = function Header(props) {
             props.subtitle
         )
     );
+};
+
+Header.defaultProps = {
+    title: 'some defatult!'
 };
 
 // Convert CBC to SFC (Class-Based Comp to Stateless Functional Component)

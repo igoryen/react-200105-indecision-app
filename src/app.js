@@ -40,7 +40,7 @@ class IndecisionApp extends React.Component {
         const subtitle = 'Put your life in the hands of a computer';
         return (
             <div>
-                <Header title={title} subtitle={subtitle}/>
+                <Header subtitle={subtitle}/>
                 <Action 
                     hasOpts={this.state.options.length > 0}
                     pickOpt={this.pickOpt}
@@ -64,6 +64,10 @@ const Header = (props) => {
             <h2>{props.subtitle}</h2>
         </div>
     )
+};
+
+Header.defaultProps = {
+    title: 'some defatult!'
 };
 
 // Convert CBC to SFC (Class-Based Comp to Stateless Functional Component)
