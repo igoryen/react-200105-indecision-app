@@ -5,8 +5,8 @@ class IndecisionApp extends React.Component {
         this.pickOpt = this.pickOpt.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            options: []
-        }
+            options: props.options
+        };
     }
     delOpts(){
         this.setState(()=>{
@@ -55,6 +55,11 @@ class IndecisionApp extends React.Component {
         )
     }
 }
+IndecisionApp.defaultProps = {
+    options: []
+};
+//========================================
+
 
 const Header = (props) => {
     return (
@@ -141,7 +146,7 @@ class AddOption extends React.Component {
 //     );
 // };
 
-ReactDOM.render(<IndecisionApp/>, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp options={['Devils den', 'Second district']} />, document.getElementById('app'));
 
 /**
  */
