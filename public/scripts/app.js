@@ -25,8 +25,39 @@ var IndecisionApp = function (_React$Component) {
         };
         return _this;
     }
+    //===================================
+    // Life-cycle methods work on CBCs, not on SFCs.
+    // CBC - class-based components
+    // SFC - stateless functional comps
+
+    // remotely like $(foo).load()
+
 
     _createClass(IndecisionApp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            console.log('componentDidMount');
+        }
+
+        // remotely like $(foo).change()
+
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            console.log('componentDidUpdate');
+        }
+
+        // right before the component unmounts/disappears from the screen
+
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            console.log('componentWillUnmount');
+        }
+
+        //================================
+
+    }, {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {

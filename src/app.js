@@ -9,6 +9,27 @@ class IndecisionApp extends React.Component {
             options: props.options
         };
     }
+    //===================================
+    // Life-cycle methods work on CBCs, not on SFCs.
+    // CBC - class-based components
+    // SFC - stateless functional comps
+
+    // remotely like $(foo).load()
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    // remotely like $(foo).change()
+    componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate');
+    }
+
+    // right before the component unmounts/disappears from the screen
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
+
+    //================================
     handleDeleteOptions() {
         this.setState(() => ({
             options: []
