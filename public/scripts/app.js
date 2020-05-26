@@ -46,14 +46,13 @@ var IndecisionApp = function (_React$Component) {
         value: function handleAddOption(option) {
             if (!option) {
                 // if an empty string
-                return 'Add valid value to add item';
+                return 'Enter valid value to add item';
             } else if (this.state.options.indexOf(option) > -1) {
                 // array already has a match
                 return 'This option already exists';
             }
             this.setState(function (prevState) {
                 return {
-
                     options: prevState.options.concat(option)
                 };
             });
@@ -174,9 +173,7 @@ var AddOption = function (_React$Component2) {
             var option = e.target.elements.opt.value.trim();
             var error = this.props.handleAddOption(option);
             this.setState(function () {
-                return {
-                    error: error // aka error: error
-                };
+                return { error: error };
             });
         }
     }, {

@@ -20,17 +20,14 @@ class IndecisionApp extends React.Component {
     }
     handleAddOption(option) {
         if (!option) { // if an empty string
-            return 'Add valid value to add item'
+            return 'Enter valid value to add item'
         }
         else if (this.state.options.indexOf(option) > -1) { // array already has a match
             return 'This option already exists'
         }
-        this.setState((prevState) => {
-            return {
-
-                options: prevState.options.concat(option)
-            }
-        });
+        this.setState((prevState) => ({
+            options: prevState.options.concat(option)
+        }));
     }
     //---------------------------------
     render() {
@@ -115,12 +112,7 @@ class AddOption extends React.Component {
         e.preventDefault();
         const option = e.target.elements.opt.value.trim();
         const error = this.props.handleAddOption(option);
-        this.setState(() => {
-            return {
-                error // aka error: error
-            }
-        });
-
+        this.setState(() => ({ error }));
     }
     render() {
         return (
