@@ -1,30 +1,30 @@
 class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
-        this.delOpts = this.delOpts.bind(this);
-        this.pickOpt = this.pickOpt.bind(this);
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+        this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
             options: props.options
         };
     }
-    delOpts(){
-        this.setState(()=>{
+    handleDeleteOptions() {
+        this.setState(() => {
             return {
                 options: [] // wipe the state
             }
         });
     }
-    pickOpt(){
+    handlePick() {
         const rno = Math.floor(Math.random() * this.state.options.length); // rno = random number
         const opt = this.state.options[rno];
         alert(opt);
     }
-    handleAddOption(option){
-        if(!option) { // if an empty string
+    handleAddOption(option) {
+        if (!option) { // if an empty string
             return 'Add valid value to add item'
         }
-        else if (this.state.options.indexOf(option) > -1){ // array already has a match
+        else if (this.state.options.indexOf(option) > -1) { // array already has a match
             return 'This option already exists'
         }
         this.setState((prevState) => {
@@ -39,16 +39,16 @@ class IndecisionApp extends React.Component {
         const subtitle = 'Put your life in the hands of a computer';
         return (
             <div>
-                <Header subtitle={subtitle}/>
-                <Action 
+                <Header subtitle={subtitle} />
+                <Action
                     hasOpts={this.state.options.length > 0}
-                    pickOpt={this.pickOpt}
+                    handlePick={this.handlePick}
                 />
-                <Options 
+                <Options
                     options={this.state.options}
-                    delOpts={this.delOpts}
+                    handleDeleteOptions={this.handleDeleteOptions}
                 />
-                <AddOption 
+                <AddOption
                     handleAddOption={this.handleAddOption}
                 />
             </div>
@@ -78,8 +78,8 @@ Header.defaultProps = {
 const Action = (props) => {
     return (
         <div>
-            <button 
-                onClick={props.pickOpt}
+            <button
+                onClick={props.handlePick}
                 disabled={!props.hasOpts}
             >
                 What should I do?
@@ -91,8 +91,8 @@ const Action = (props) => {
 const Options = (props) => {
     return (
         <div>
-            <button onClick={props.delOpts}>Remove all</button>
-            { props.options.map( (opt) => <Option key={opt} optText={opt} /> ) }
+            <button onClick={props.handleDeleteOptions}>Remove all</button>
+            {props.options.map((opt) => <Option key={opt} optText={opt} />)}
         </div>
     );
 };
@@ -106,7 +106,7 @@ const Option = (props) => {
 };
 
 class AddOption extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
@@ -125,11 +125,11 @@ class AddOption extends React.Component {
 
     }
     render() {
-        return(
+        return (
             <div>
-                { this.state.error && <p>{this.state.error}</p>}
+                {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.handleAddOption}>
-                    <input type="text" name="opt"/>
+                    <input type="text" name="opt" />
                     <button>Add Option</button>
                 </form>
             </div>
