@@ -16,12 +16,25 @@ class IndecisionApp extends React.Component {
 
     // remotely like $(foo).load()
     componentDidMount() {
-        console.log('componentDidMount');
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json);
+
+            if (options) {
+                this.setState(() => ({ options })); // = options: options
+            }
+        }
+        catch (e) {
+            // If JSON data is invalid, do nothing at all.
+        }
     }
 
     // remotely like $(foo).change()
     componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate');
+        if (prevState.options.length !== this.state.options.length) {
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+        }
     }
 
     // right before the component unmounts/disappears from the screen
@@ -117,6 +130,7 @@ const Options = (props) => {
     return (
         <div>
             <button onClick={props.handleDeleteOptions}>Remove all</button>
+            {props.options.length === 0 && <p>Please add an option to get started.</p>}
             {props.options.map((opt) => (
                 <Option
                     key={opt}
@@ -154,6 +168,9 @@ class AddOption extends React.Component {
         const option = e.target.elements.opt.value.trim();
         const error = this.props.handleAddOption(option);
         this.setState(() => ({ error }));
+        if (!error) {
+            e.target.elements.opt.value = ''; // clear text input field
+        }
     }
     render() {
         return (
