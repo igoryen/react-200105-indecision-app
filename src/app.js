@@ -4,6 +4,7 @@ class IndecisionApp extends React.Component {
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
+        this.handleDeleteOption = this.handleDeleteOption.bind(this);
         this.state = {
             options: props.options
         };
@@ -13,6 +14,13 @@ class IndecisionApp extends React.Component {
             options: []
         }));
     }
+
+    handleDeleteOption(optionToRemove) {
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) => optionToRemove !== option)
+        }));
+    }
+
     handlePick() {
         const rno = Math.floor(Math.random() * this.state.options.length); // rno = random number
         const opt = this.state.options[rno];
@@ -42,6 +50,7 @@ class IndecisionApp extends React.Component {
                 <Options
                     options={this.state.options}
                     handleDeleteOptions={this.handleDeleteOptions}
+                    handleDeleteOption={this.handleDeleteOption}
                 />
                 <AddOption
                     handleAddOption={this.handleAddOption}
@@ -87,15 +96,26 @@ const Options = (props) => {
     return (
         <div>
             <button onClick={props.handleDeleteOptions}>Remove all</button>
-            {props.options.map((opt) => <Option key={opt} optText={opt} />)}
+            {props.options.map((opt) => (
+                <Option
+                    key={opt}
+                    optionText={opt}
+                    handleDeleteOption={props.handleDeleteOption}
+                />
+            ))}
         </div>
-    );
+    )
 };
 
 const Option = (props) => {
     return (
         <div>
-            {props.optText}
+            {props.optionText}
+            <button
+                onClick={(e) => {
+                    props.handleDeleteOption(props.optionText)
+                }}
+            >remove</button>
         </div>
     )
 };
