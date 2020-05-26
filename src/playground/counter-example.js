@@ -46,7 +46,7 @@ class Counter extends React.Component {
     }
 }
 
-ReactDOM.render(<Counter count={-10}/>, document.getElementById('app'));
+ReactDOM.render(<Counter count={-10} />, document.getElementById('app'));
 
 
 // //==========================================
