@@ -30,7 +30,7 @@ var IndecisionApp = function (_React$Component) {
         value: function handleDeleteOptions() {
             this.setState(function () {
                 return {
-                    options: [] // wipe the state
+                    options: []
                 };
             });
         }

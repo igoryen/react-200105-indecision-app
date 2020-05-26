@@ -9,11 +9,9 @@ class IndecisionApp extends React.Component {
         };
     }
     handleDeleteOptions() {
-        this.setState(() => {
-            return {
-                options: [] // wipe the state
-            }
-        });
+        this.setState(() => ({
+            options: []
+        }));
     }
     handlePick() {
         const rno = Math.floor(Math.random() * this.state.options.length); // rno = random number
