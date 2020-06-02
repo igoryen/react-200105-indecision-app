@@ -69,44 +69,38 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(2);
 // // import './utils.js'
+// import subtract, { square, add } from './utils.js';
+
+// console.log('app.js is running!!!');
+// console.log(square(4));
+// console.log(add(100,23));
+// console.log(subtract(100, 81));
 
 
-console.log('app.js is running!!!');
-console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["c" /* square */](4));
-console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](100,23));
-console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* default */](100, 81));
-
-// import { isAdult, canDrink} from './person.js';
-// console.log("is adult? ", isAdult(20));
-// console.log("can drink?", canDrink(21));
+console.log("is adult? ", __WEBPACK_IMPORTED_MODULE_0__person_js__["c" /* isAdult */](20));
+console.log("can drink?", __WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* canDrink */](21));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* default */](65));
 
 // the difference between 'default' and 'named' exports:
 // naming is lax, e.g. all instances of 'subtract' here in this file
 // can be named to foobar or anything else arbitrary
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-console.log('utils.js is running!!!');
-
-const square = (x) => x * x;
-/* harmony export (immutable) */ __webpack_exports__["c"] = square;
-
-
-const add = (a, b) => a + b;
-/* harmony export (immutable) */ __webpack_exports__["a"] = add;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isAdult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isSenior; });
+const isAdult = (age) => age >= 18;
+const canDrink = (age) => age >= 21;
+const isSenior = (age) => age >= 65;
 
 
-// named export
-// export { square, add };
-
-// default export
-// export {  square, add, subtract as default}; // 0 or 1 'subtract'
-/* harmony default export */ __webpack_exports__["b"] = ((a, b) => a - b);
 
 /***/ })
 /******/ ]);
