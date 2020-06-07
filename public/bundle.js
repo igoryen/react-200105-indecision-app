@@ -1022,6 +1022,10 @@ var _AddOption = __webpack_require__(35);
 
 var _AddOption2 = _interopRequireDefault(_AddOption);
 
+var _Option = __webpack_require__(36);
+
+var _Option2 = _interopRequireDefault(_Option);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1218,29 +1222,12 @@ var Options = function Options(props) {
             'Please add an option to get started.'
         ),
         props.options.map(function (opt) {
-            return _react2.default.createElement(Option, {
+            return _react2.default.createElement(_Option2.default, {
                 key: opt,
                 optionText: opt,
                 handleDeleteOption: props.handleDeleteOption
             });
         })
-    );
-};
-
-var Option = function Option(props) {
-    return _react2.default.createElement(
-        'div',
-        null,
-        props.optionText,
-        _react2.default.createElement(
-            'button',
-            {
-                onClick: function onClick(e) {
-                    props.handleDeleteOption(props.optionText);
-                }
-            },
-            'remove'
-        )
     );
 };
 
@@ -10227,6 +10214,42 @@ var AddOption = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = AddOption;
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Option = function Option(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        props.optionText,
+        _react2.default.createElement(
+            'button',
+            {
+                onClick: function onClick(e) {
+                    props.handleDeleteOption(props.optionText);
+                }
+            },
+            'remove'
+        )
+    );
+};
+
+exports.default = Option;
 
 /***/ })
 /******/ ]);
