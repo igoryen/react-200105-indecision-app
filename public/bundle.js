@@ -1030,6 +1030,10 @@ var _Header = __webpack_require__(37);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _Action = __webpack_require__(38);
+
+var _Action2 = _interopRequireDefault(_Action);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1155,7 +1159,7 @@ var IndecisionApp = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(_Header2.default, { subtitle: subtitle }),
-                _react2.default.createElement(Action, {
+                _react2.default.createElement(_Action2.default, {
                     hasOpts: this.state.options.length > 0,
                     handlePick: this.handlePick
                 }),
@@ -1173,24 +1177,6 @@ var IndecisionApp = function (_React$Component) {
 
     return IndecisionApp;
 }(_react2.default.Component);
-
-// Convert CBC to SFC (Class-Based Comp to Stateless Functional Component)
-
-
-var Action = function Action(props) {
-    return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-            'button',
-            {
-                onClick: props.handlePick,
-                disabled: !props.hasOpts
-            },
-            'What should I do?'
-        )
-    );
-};
 
 var Options = function Options(props) {
     return _react2.default.createElement(
@@ -10275,6 +10261,39 @@ Header.defaultProps = {
 };
 
 exports.default = Header;
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Action = function Action(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'button',
+            {
+                onClick: props.handlePick,
+                disabled: !props.hasOpts
+            },
+            'What should I do?'
+        )
+    );
+};
+exports.default = Action;
 
 /***/ })
 /******/ ]);

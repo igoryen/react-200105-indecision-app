@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import AddOption from './components/AddOption';
 import Option from './components/Option';
 import Header from './components/Header';
+import Action from './components/Action';
 
 class IndecisionApp extends React.Component {
     constructor(props) {
@@ -100,20 +101,6 @@ class IndecisionApp extends React.Component {
         )
     }
 }
-
-// Convert CBC to SFC (Class-Based Comp to Stateless Functional Component)
-const Action = (props) => {
-    return (
-        <div>
-            <button
-                onClick={props.handlePick}
-                disabled={!props.hasOpts}
-            >
-                What should I do?
-            </button>
-        </div>
-    )
-};
 
 const Options = (props) => {
     return (
