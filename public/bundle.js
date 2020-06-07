@@ -1022,10 +1022,6 @@ var _AddOption = __webpack_require__(35);
 
 var _AddOption2 = _interopRequireDefault(_AddOption);
 
-var _Option = __webpack_require__(36);
-
-var _Option2 = _interopRequireDefault(_Option);
-
 var _Header = __webpack_require__(37);
 
 var _Header2 = _interopRequireDefault(_Header);
@@ -1033,6 +1029,10 @@ var _Header2 = _interopRequireDefault(_Header);
 var _Action = __webpack_require__(38);
 
 var _Action2 = _interopRequireDefault(_Action);
+
+var _Options = __webpack_require__(39);
+
+var _Options2 = _interopRequireDefault(_Options);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1163,7 +1163,7 @@ var IndecisionApp = function (_React$Component) {
                     hasOpts: this.state.options.length > 0,
                     handlePick: this.handlePick
                 }),
-                _react2.default.createElement(Options, {
+                _react2.default.createElement(_Options2.default, {
                     options: this.state.options,
                     handleDeleteOptions: this.handleDeleteOptions,
                     handleDeleteOption: this.handleDeleteOption
@@ -1177,30 +1177,6 @@ var IndecisionApp = function (_React$Component) {
 
     return IndecisionApp;
 }(_react2.default.Component);
-
-var Options = function Options(props) {
-    return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-            'button',
-            { onClick: props.handleDeleteOptions },
-            'Remove all'
-        ),
-        props.options.length === 0 && _react2.default.createElement(
-            'p',
-            null,
-            'Please add an option to get started.'
-        ),
-        props.options.map(function (opt) {
-            return _react2.default.createElement(_Option2.default, {
-                key: opt,
-                optionText: opt,
-                handleDeleteOption: props.handleDeleteOption
-            });
-        })
-    );
-};
 
 _reactDom2.default.render(_react2.default.createElement(IndecisionApp, null), document.getElementById('app'));
 
@@ -10294,6 +10270,53 @@ var Action = function Action(props) {
     );
 };
 exports.default = Action;
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Option = __webpack_require__(36);
+
+var _Option2 = _interopRequireDefault(_Option);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Options = function Options(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'button',
+            { onClick: props.handleDeleteOptions },
+            'Remove all'
+        ),
+        props.options.length === 0 && _react2.default.createElement(
+            'p',
+            null,
+            'Please add an option to get started.'
+        ),
+        props.options.map(function (opt) {
+            return _react2.default.createElement(_Option2.default, {
+                key: opt,
+                optionText: opt,
+                handleDeleteOption: props.handleDeleteOption
+            });
+        })
+    );
+};
+
+exports.default = Options;
 
 /***/ })
 /******/ ]);
