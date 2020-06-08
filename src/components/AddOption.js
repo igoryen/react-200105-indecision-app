@@ -12,7 +12,7 @@ export default class AddOption extends React.Component {
         if (!error) {
             e.target.elements.opt.value = ''; // clear text input field
         }
-    }
+    };
     render() {
         return (
             <div>

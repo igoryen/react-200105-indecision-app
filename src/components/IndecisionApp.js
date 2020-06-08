@@ -6,16 +6,38 @@ import Action from './Action';
 import Options from './Options';
 
 export default class IndecisionApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-        this.handlePick = this.handlePick.bind(this);
-        this.handleAddOption = this.handleAddOption.bind(this);
-        this.handleDeleteOption = this.handleDeleteOption.bind(this);
-        this.state = {
-            options: []
-        };
+    state = {
+        options: []
     }
+    //================================
+    handleDeleteOptions = () => {
+        this.setState(() => ({
+            options: []
+        }));
+    };
+
+    handleDeleteOption = (optionToRemove) => {
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) => optionToRemove !== option)
+        }));
+    };
+
+    handlePick = () => {
+        const rno = Math.floor(Math.random() * this.state.options.length); // rno = random number
+        const opt = this.state.options[rno];
+        alert(opt);
+    };
+    handleAddOption = (option) => {
+        if (!option) { // if an empty string
+            return 'Enter valid value to add item'
+        }
+        else if (this.state.options.indexOf(option) > -1) { // array already has a match
+            return 'This option already exists'
+        }
+        this.setState((prevState) => ({
+            options: prevState.options.concat(option)
+        }));
+    };
     //===================================
     // Life-cycle methods work on CBCs, not on SFCs.
     // CBC - class-based components
@@ -49,35 +71,7 @@ export default class IndecisionApp extends React.Component {
         console.log('componentWillUnmount');
     }
 
-    //================================
-    handleDeleteOptions() {
-        this.setState(() => ({
-            options: []
-        }));
-    }
-
-    handleDeleteOption(optionToRemove) {
-        this.setState((prevState) => ({
-            options: prevState.options.filter((option) => optionToRemove !== option)
-        }));
-    }
-
-    handlePick() {
-        const rno = Math.floor(Math.random() * this.state.options.length); // rno = random number
-        const opt = this.state.options[rno];
-        alert(opt);
-    }
-    handleAddOption(option) {
-        if (!option) { // if an empty string
-            return 'Enter valid value to add item'
-        }
-        else if (this.state.options.indexOf(option) > -1) { // array already has a match
-            return 'This option already exists'
-        }
-        this.setState((prevState) => ({
-            options: prevState.options.concat(option)
-        }));
-    }
+    
     //---------------------------------
     render() {
         const subtitle = 'Put your life in the hands of a computer';
