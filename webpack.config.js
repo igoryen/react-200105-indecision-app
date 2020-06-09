@@ -14,10 +14,11 @@ module.exports = {
                 exclude: /node_modules/
             }, 
             { // added manually
-                test: /\.css$/, 
+                test: /\.scss$/, 
                 use: [
                     'style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ]
             }
         ]
